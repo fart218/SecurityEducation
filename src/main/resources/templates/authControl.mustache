@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  {{>layout/header}}
+
+  {{>layout/sidebar}}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="fas fa-bullhorn"></i>
+          認可制御
+        </h3>
+      </div>
+
+    <div class="card-body">
+      <div class="callout callout-success">
+		<h5>ログイン後画面の通信に認証機能が存在しない。</h5>
+		<h5>未ログインの状態で本来閲覧権限のない機密情報を不正に取得することが可能です。</h5>
+        <br></br>
+		<h5>◼ 対策</h5>
+        <h5>データを表示・処理する際には必ずユーザ権限をチェック</h5>
+		<h5>（－セッション ID 等の一意の識別子を用いる－）し、</h5>
+		<h5>アクセス権限に従った表示・処理をするようプログラムを修正する。</h5>
+      </div>
+  </div>
+
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+  {{>layout/footer}}
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<script>
+$('.nav-link').eq(2).addClass("active");
+</script>
+</body>
+</html>

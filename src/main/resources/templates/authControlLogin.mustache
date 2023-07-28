@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  {{>layout/header}}
+
+  {{>layout/sidebar}}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <b>Web Security</b>
+      </div>
+      <!-- /.login-logo -->
+      <div class="card">
+        <div class="card-body login-card-body">
+          <p class="login-box-msg">Start your session</p>
+          <div class="input-group mb-3">
+            <input type="text" id="id" class="form-control" placeholder="Id">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fa-regular fa-id-badge"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" id="password" class="form-control" placeholder="Password">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8">
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="button" id="btn-login" class="btn btn-primary btn-block">Login</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </div>
+        <!-- /.login-card-body -->
+      </div>
+    </div>
+    <!-- /.login-box -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  {{>layout/footer}}
+ 
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+
+<script>
+$('.nav-link').eq(2).addClass("active");
+var main = {
+    init : function () {
+        var _this = this;
+        $('#btn-login').on('click', function () {
+            _this.login();
+        });
+    },
+    login : function () {
+        var data = JSON.stringify({
+            id: $('#id').val(),
+            password: $('#password').val()
+        });
+        $.ajax({
+			url: "/api/login",
+			method: "POST",
+        	data: data,
+        	contentType : "application/json; charset=UTF-8"
+ 		})
+        .done(res => {
+	        if(res.authResult) {
+	        	location.href = "/view/authControl";
+	        } else { // Authentication is failed.
+	    		if(res.lockStatus == 1) {
+	        		alert("規定のログイン回数を超過しましたので、" + res.lockRelease + "分後に再度ログインを行って下さい。");
+	        	} else if(res.lockStatus == 2) {
+	        		alert("認証失敗回数が規定回数を超えましたので、指定時間経過後に再度ログインを行って下さい。");
+	        	} else {
+	        		alert("ログインに失敗しました");
+	        	}
+	        }
+		})
+        .fail(error => {
+        	alert(JSON.stringify(error));
+        });
+    }
+};
+
+main.init();
+</script>
+
+</body>
+</html>

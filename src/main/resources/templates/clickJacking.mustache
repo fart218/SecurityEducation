@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  {{>layout/header}}
+
+  {{>layout/sidebar}}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="fas fa-bullhorn"></i>
+          クリックジャッキングに対する設定
+        </h3>
+      </div>
+
+    <div class="card-body">
+      <div class="callout callout-success">
+		<h5>レスポンスヘッダ中にX-Frame-Optionsヘッダまたは</h5>
+		<h5>Content-Security-Policy ヘッダがセットされていないことにより、</h5>
+		<h5>攻撃者はクリックジャック攻撃を仕掛けうる可能性があります。</h5>
+		<img class="img-fluid" src="../../dist/img/clickJacking.png" alt="Photo">
+		<br></br>
+		<h5>◼ 対策</h5>
+ 		<h5>ヘッダ中に X-Frame-Options または Content-Security-Policy をセットする。</h5>
+		<h5>&emsp;＜<b>X-Frame-Options</b> による制御＞</h5>
+		<h5>&emsp;&emsp;<b class="text-danger">DENY</b>：フレーム内のページ表示を全ドメインで禁止</h5>
+		<h5>&emsp;&emsp;<b class="text-danger">SAMEORIGIN</b>：フレーム内のページ表示を同一ドメイン内のみ許可</h5>
+		<h5>&emsp;＜Content-Security-Policy による制御(ドメイン指定)＞</h5>
+		<h5>&emsp;&emsp;<b>Content-Security-Policy</b>：<b class="text-danger">frame-ancestors 'self' 対象とするドメイン</b></h5>
+		<h5>※X-Frame-Options の ALLOW-FROM 廃止に伴う代替手段</h5>
+		<br></br>
+		<h5>※設定時の注意点</h5>
+		<h5>アクセス許可の制御を講じる場合には正しく Web アプリケーションが動作しなくなる可能性がございます。</h5>
+		<h5>設定の前には十分な確認が必要です。</h5>
+      </div>
+  </div>
+
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+  {{>layout/footer}}
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<script>
+$('.nav-link').eq(6).addClass("active");
+</script>
+</body>
+</html>

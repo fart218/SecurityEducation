@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  {{>layout/header}}
+
+  {{>layout/sidebar}}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="fas fa-bullhorn"></i>
+          アプリケーションサーバエラーメッセージ
+        </h3>
+      </div>
+
+    <div class="card-body">
+      <div class="callout callout-success">
+		<h5>アプリケーションサーバのエラーメッセージが表示される場合、</h5>
+		<h5>当エラーメッセージには、使用アプリケーションなど、システムの内部情報が含まれているため、</h5>
+		<h5>システムに存在する問題を推測される恐れがあります。</h5>
+		<img class="img-fluid" src="../../dist/img/error.png" alt="Photo">
+		<br></br>
+		<h5>◼ 対策</h5>
+ 		<h5>プログラムを確認し、エラー発生原因を特定の上、</h5>
+		<h5>用意したエラーページを表示するなど、適切なエラー処理を行う様、プログラムを修正する。</h5>
+      </div>
+  </div>
+
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+  {{>layout/footer}}
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<script>
+$('.nav-link').eq(9).addClass("active");
+</script>
+</body>
+</html>

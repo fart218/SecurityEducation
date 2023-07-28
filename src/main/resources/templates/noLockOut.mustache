@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  {{>layout/header}}
+
+  {{>layout/sidebar}}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="fas fa-bullhorn"></i>
+           ロックアウト機能のないログイン処理
+        </h3>
+      </div>
+
+    <div class="card-body">
+      <div class="callout callout-success">
+		<h5>ロックアウト機能がなく、何度もログイン処理を実行することが出来るため、</h5>
+		<h5>総当り攻撃、辞書攻撃といった攻撃を実施することが可能であり、</h5>
+		<h5>ログイン ID が推測可能、推測しやすいパスワードを使用しているなどの</h5>
+		<h5>条件によってはシステムにログインされてしまう可能性があります。</h5>
+        <br></br>
+		<h5>◼ 対策</h5>
+        <h5>ログイン処理にロックアウト機能を追加し、</h5>
+		<h5>複数回ログインに失敗した場合はログインアカウントをロックし、</h5>
+		<h5>一定時間もしくはロックを解除するまでログイン処理を受け付けないようにする。</h5>
+      </div>
+  </div>
+
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+  {{>layout/footer}}
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<script>
+$('.nav-link').eq(3).addClass("active");
+</script>
+</body>
+</html>

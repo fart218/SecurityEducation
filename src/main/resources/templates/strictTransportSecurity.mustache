@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  {{>layout/header}}
+
+  {{>layout/sidebar}}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="fas fa-bullhorn"></i>
+          Strict-Transport-Security ヘッダの設定
+        </h3>
+      </div>
+
+    <div class="card-body">
+      <div class="callout callout-success">
+		<h5>レスポンスヘッダ中に Strict-Transport-Security ヘッダがセットされていない。</h5>
+		<h5>利用者は意図せず該当サーバと非暗号化通信(HTTP)を行い、中間者攻撃を受ける可能性があります。</h5>
+		<img class="img-fluid" src="../../dist/img/strictTransportSecurity.png" alt="Photo">
+		<br></br>
+		<h5>◼ 対策</h5>
+ 		<h5>ヘッダ中に Strict-Transport-Security をセットする。</h5>
+ 		<h5>&emsp;<b>Strict-Transport-Security</b>：<b class="text-danger">max-age=10886400</b></h5>
+ 		<h5>設定値は 10886400 秒（18 週）以上を推奨いたします。</h5>
+ 		<br></br>
+ 		<h5>※設定時の注意点</h5>
+ 		<h5>該当のサイトにおいて SSL 通信が行われていることが前提となりますので、</h5>
+ 		<h5>本設定により Web アプリケーションが動作しなくなる可能性がございます。</h5>
+ 		<h5>設定の前には十分な確認が必要です。</h5>
+      </div>
+  </div>
+
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+  {{>layout/footer}}
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<script>
+$('.nav-link').eq(7).addClass("active");
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  {{>layout/header}}
+
+  {{>layout/sidebar}}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="fas fa-bullhorn"></i>
+          ローカルキャッシュからの情報漏洩の可能性
+        </h3>
+      </div>
+
+    <div class="card-body">
+      <div class="callout callout-success">
+		<h5>ローカルキャッシュディスクへのコンテンツ保存を明示的に</h5>
+		<h5>拒否するコントロールが行われていないことが確認されました。</h5>
+		<h5>コンテンツを再現することの出来るパラメータを特定することは出来ませんでしたが、</h5>
+		<h5>ローカルキャッシュ内を調査することにより、</h5>
+		<h5>利用者の個人情報等が第三者により不正に閲覧される可能性があります。</h5>
+		<img class="img-fluid" src="../../dist/img/localCache.png" alt="Photo">
+		<br></br>
+		<h5>◼ 対策</h5>
+		<h5>「Pragma」，「Cache-control」のHTTP ヘッダ属性として、ローカルディスク保存を拒否する設定にする。</h5>
+		<h5>&emsp;• 設定例</h5>
+		<h5>&emsp;&emsp;<b>Cache-Control</b>：<b class="text-danger">no-store</b></h5>
+		<h5>&emsp;&emsp;<b>Pragma</b>：<b class="text-danger">no-cache</b> (HTTP/1.0 の考慮)</h5>
+		<br></br>
+		<h5>※レスポンスヘッダへの出力時に行う必要があります。</h5>
+      </div>
+  </div>
+
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+  {{>layout/footer}}
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<script>
+$('.nav-link').eq(5).addClass("active");
+</script>
+</body>
+</html>

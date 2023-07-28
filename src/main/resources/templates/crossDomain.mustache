@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  {{>layout/header}}
+
+  {{>layout/sidebar}}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="fas fa-bullhorn"></i>
+          HTML5 クロスドメインポリシーの適用
+        </h3>
+      </div>
+
+    <div class="card-body">
+      <div class="callout callout-success">
+		<h5>HTML5 通信発生時に不特定多数のドメインからのアクセスを許可している。</h5>
+		<h5>アクセス元のドメインに悪意あるコンテンツファイルが置かれていた場合、</h5>
+		<h5>親ドメイン配下すべてのデータとコンテンツへのアクセスが許可されることになり、</h5>
+		<h5>情報漏洩が発生する可能性もあります。</h5>
+		<img class="img-fluid" src="../../dist/img/crossDomain.png" alt="Photo">
+		<br></br>
+		<h5>◼ 対策</h5>
+		<h5>クロスドメインによるアクセスを許可する必要がある場合は、アクセス許可ポリシーを以下の様に書き換える。</h5>
+		<h5>&emsp;×現在： <b>Access-Control-Allow-Origin</b>：<b class="text-danger">*</b></h5>
+		<h5>&emsp;○推奨： <b>Access-Control-Allow-Origin</b>：<b class="text-danger">www.example.com</b></h5>
+		<h5>※「www.example.com」部分にはアクセスを許可する必要のあるドメイン名を指定する。</h5>
+      </div>
+  </div>
+
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+  {{>layout/footer}}
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<script>
+$('.nav-link').eq(4).addClass("active");
+</script>
+</body>
+</html>

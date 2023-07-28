@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  {{>layout/header}}
+
+  {{>layout/sidebar}}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <div class="card card-default">
+      <div class="card-header">
+        <h3 class="card-title">
+          <i class="fas fa-bullhorn"></i>
+           X-Content-Type-Options ヘッダの設定
+        </h3>
+      </div>
+
+    <div class="card-body">
+      <div class="callout callout-success">
+		<h5>レスポンスヘッダ中に X-Content-Type-Options ヘッダがセットされていない。</h5>
+		<h5>正規の Content-Type とは異なる形式で読み込みが行われ、</h5>
+		<h5>クロスサイトスクリプティングなどの脆弱性を利用される可能性があります。</h5>
+		<img class="img-fluid" src="../../dist/img/xContentTypeOptions.png" alt="Photo">
+		<br></br>
+		<h5>◼ 対策</h5>
+ 		<h5>ヘッダ中に X-Content-Type-Options をセットする。</h5>
+		<h5>&emsp;<b>X-Content-Type-Options</b>：<b class="text-danger">nosniff</h5>
+      </div>
+  </div>
+
+    </div>
+  </div>
+  <!-- /.content-wrapper -->
+
+  {{>layout/footer}}
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+<script>
+$('.nav-link').eq(8).addClass("active");
+</script>
+</body>
+</html>
